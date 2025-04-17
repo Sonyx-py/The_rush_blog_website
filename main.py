@@ -28,16 +28,16 @@ pip3 install -r requirements.txt
 This will install the packages from the requirements.txt for this project.
 '''
 
-script_dir = os.path.dirname(__file__)
-file_path = os.path.join(script_dir, 'credentials.txt')
-# Every line should represent some key that we need
+# script_dir = os.path.dirname(__file__)
+# file_path = os.path.join(script_dir, 'credentials.txt')
+# # Every line should represent some key that we need
 
-with open(file_path, 'r') as credentials:
-    credential_list = credentials.readlines()
+# with open(file_path, 'r') as credentials:
+#     credential_list = credentials.readlines()
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = credential_list[0]
+app.config['SECRET_KEY'] = os.environ.get("SECRET KEY")
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
